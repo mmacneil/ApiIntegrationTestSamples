@@ -1,4 +1,5 @@
 ﻿using System;
+using Newtonsoft.Json;
 using Web.Api.Core.Shared;
 
 namespace Web.Api.Core.Domain.Entities
@@ -13,6 +14,7 @@ namespace Web.Api.Core.Domain.Entities
 
         internal Player() { /* Required by EF */ }
 
+        [JsonConstructor]
         internal Player(string firstName, string lastName, int heightCm, decimal weightKg,DateTime birthDate)
         {
             FirstName = firstName;

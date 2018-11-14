@@ -24,12 +24,12 @@ namespace Web.Api.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Player>().HasData(new Player("Sidney", "Crosby", 180, 91, new DateTime(1987, 8, 7)) { Id = 1,Created = DateTime.UtcNow});
+           /* modelBuilder.Entity<Player>().HasData(new Player("Sidney", "Crosby", 180, 91, new DateTime(1987, 8, 7)) { Id = 1,Created = DateTime.UtcNow});
             modelBuilder.Entity<Player>().HasData(new Player("Connor", "McDavid", 185, 88, new DateTime(1997, 1, 13)) { Id = 2, Created = DateTime.UtcNow });
             modelBuilder.Entity<Player>().HasData(new Player("Auston", "Matthews", 191, 100, new DateTime(1997, 9, 17)) { Id = 3, Created = DateTime.UtcNow });
             modelBuilder.Entity<Player>().HasData(new Player("Patrick", "Kane", 180, 177, new DateTime(1988, 11, 19)) { Id = 4, Created = DateTime.UtcNow });
             modelBuilder.Entity<Player>().HasData(new Player("Drew", "Doughty", 185, 200, new DateTime(1989, 12, 8)) { Id = 5, Created = DateTime.UtcNow });
-            modelBuilder.Entity<Player>().HasData(new Player("Erik", "Karlsson", 183, 190, new DateTime(1990, 5, 31)) { Id = 6, Created = DateTime.UtcNow });
+            modelBuilder.Entity<Player>().HasData(new Player("Erik", "Karlsson", 183, 190, new DateTime(1990, 5, 31)) { Id = 6, Created = DateTime.UtcNow }); */
         }
         
         public DbSet<Player> Players { get; set; }

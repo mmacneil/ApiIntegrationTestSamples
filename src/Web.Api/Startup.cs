@@ -1,8 +1,12 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Web.Api.Core.Interfaces.Gateways.Repositories;
+using Web.Api.Infrastructure.Data;
+using Web.Api.Infrastructure.Data.Repositories;
 
 
 namespace Web.Api
@@ -19,6 +23,10 @@ namespace Web.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<AppDbContext>(options => options.UseSqlite("Data Source=players.db"));
+            
+            services.AddScoped<IPlayerRepository, PlayerRepository>();
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
