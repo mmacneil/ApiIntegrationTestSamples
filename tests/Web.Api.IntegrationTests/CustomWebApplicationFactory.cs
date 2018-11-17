@@ -26,7 +26,6 @@ namespace Web.Api.IntegrationTests
                     options.UseInternalServiceProvider(serviceProvider);
                 });
 
-
                 // Build the service provider.
                 var sp = services.BuildServiceProvider();
 

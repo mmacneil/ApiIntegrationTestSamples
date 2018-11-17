@@ -17,7 +17,7 @@ namespace Web.Api.IntegrationTests.Controllers
         }
 
         [Fact]
-        public async Task Test1()
+        public async Task CanGetPlayers()
         {
             var httpResponse = await _client.GetAsync("/api/players");
             httpResponse.EnsureSuccessStatusCode();
@@ -25,6 +25,18 @@ namespace Web.Api.IntegrationTests.Controllers
             var players = JsonConvert.DeserializeObject<IEnumerable<Player>>(stringResponse);
             Assert.Contains(players, p => p.FirstName=="Wayne");
             Assert.Contains(players, p => p.FirstName == "Mario");
+        }
+
+
+        [Fact]
+        public async Task CanGetPlayerById()
+        {
+            var httpResponse = await _client.GetAsync("/api/players/1");
+            httpResponse.EnsureSuccessStatusCode();
+            var stringResponse = await httpResponse.Content.ReadAsStringAsync();
+            var player = JsonConvert.DeserializeObject<Player>(stringResponse);
+            Assert.Equal(1,player.Id);
+            Assert.Equal("Wayne", player.FirstName);
         }
     }
 }
