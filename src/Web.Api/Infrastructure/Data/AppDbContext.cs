@@ -24,7 +24,7 @@ namespace Web.Api.Infrastructure.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-           /* restore me to have data in db
+           /* restore me to have    data in db
             modelBuilder.Entity<Player>().HasData(new Player("Sidney", "Crosby", 180, 91, new DateTime(1987, 8, 7)) { Id = 1,Created = DateTime.UtcNow});
             modelBuilder.Entity<Player>().HasData(new Player("Connor", "McDavid", 185, 88, new DateTime(1997, 1, 13)) { Id = 2, Created = DateTime.UtcNow });
             modelBuilder.Entity<Player>().HasData(new Player("Auston", "Matthews", 191, 100, new DateTime(1997, 9, 17)) { Id = 3, Created = DateTime.UtcNow });

@@ -19,8 +19,13 @@ namespace Web.Api.IntegrationTests.Controllers
         [Fact]
         public async Task CanGetPlayers()
         {
+            // The endpoint or route of the controller action.
             var httpResponse = await _client.GetAsync("/api/players");
+
+            // Must be successful.
             httpResponse.EnsureSuccessStatusCode();
+
+            // Deserialize and examine results.
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var players = JsonConvert.DeserializeObject<IEnumerable<Player>>(stringResponse);
             Assert.Contains(players, p => p.FirstName=="Wayne");
@@ -31,8 +36,13 @@ namespace Web.Api.IntegrationTests.Controllers
         [Fact]
         public async Task CanGetPlayerById()
         {
+            // The endpoint or route of the controller action.
             var httpResponse = await _client.GetAsync("/api/players/1");
+
+            // Must be successful.
             httpResponse.EnsureSuccessStatusCode();
+
+            // Deserialize and examine results.
             var stringResponse = await httpResponse.Content.ReadAsStringAsync();
             var player = JsonConvert.DeserializeObject<Player>(stringResponse);
             Assert.Equal(1,player.Id);
